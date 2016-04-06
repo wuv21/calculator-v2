@@ -120,12 +120,50 @@ print("[2, 2, 2] = \(mathArrayOp([2, 2, 2], op: count))")
 // Points
 typealias CartPt = (Int, Int)
 
-func addPt(x1: CartPt, x2: CartPt) -> CartPt {
-    return (x1.0 + x2.0, x1.1 + x2.1)
+func addPt(p1: CartPt, p2: CartPt) -> CartPt {
+    return (p1.0 + p2.0, p1.1 + p2.1)
 }
 
-func subPt(x1: CartPt, x2: CartPt) -> CartPt {
-    return (x1.0 - x2.0, x1.1 - x2.1)
+func subPt(p1: CartPt, p2: CartPt) -> CartPt {
+    return (p1.0 - p2.0, p1.1 - p2.1)
 }
 
+typealias CartPt_dict = Dictionary<String, Double>
 
+func addPt_dict(p1: CartPt_dict, p2: CartPt_dict) -> CartPt_dict {
+    return ["x": p1["x"]! + p2["x"]!,
+            "y": p1["y"]! + p2["y"]!]
+}
+
+func subPt_dict(p1: CartPt_dict, p2: CartPt_dict) -> CartPt_dict {
+    return ["x": p1["x"]! - p2["x"]!,
+            "y": p1["y"]! - p2["y"]!]
+}
+
+// examples - point addition
+print("\nexamples - - - point addition")
+print("(0,0) + (3,3) = \(addPt((0,0), p2: (3,3)))")
+print("(2,4) + (3,3) = \(addPt((2,4), p2: (3,3)))")
+print("(1,5) + (2,3) = \(addPt((1,5), p2: (2,3)))")
+print("(1,1) + (4,1) = \(addPt((1,1), p2: (4,1)))")
+
+// examples - point substraction
+print("\nexamples - - - point substraction")
+print("(0,0) - (3,3) = \(subPt((0,0), p2: (3,3)))")
+print("(2,4) - (3,3) = \(subPt((2,4), p2: (3,3)))")
+print("(1,5) - (2,3) = \(subPt((1,5), p2: (2,3)))")
+print("(1,1) - (4,1) = \(subPt((1,1), p2: (4,1)))")
+
+// examples - point dictionary addition
+print("\nexamples - - - point dictionary addition")
+print("(0,0) + (3,3) = \(addPt_dict(["x": 0, "y": 0], p2: ["x": 3, "y": 3]))")
+print("(2,4) + (3,3) = \(addPt_dict(["x": 2, "y": 4], p2: ["x": 3, "y": 3]))")
+print("(1,5) + (2,3) = \(addPt_dict(["x": 1, "y": 5], p2: ["x": 2, "y": 3]))")
+print("(1,1) + (4,1) = \(addPt_dict(["x": 1, "y": 1], p2: ["x": 4, "y": 1]))")
+
+// examples - point dictionary substraction
+print("\nexamples - - - point dictionary substraction")
+print("(0,0) + (3,3) = \(subPt_dict(["x": 0, "y": 0], p2: ["x": 3, "y": 3]))")
+print("(2,4) + (3,3) = \(subPt_dict(["x": 2, "y": 4], p2: ["x": 3, "y": 3]))")
+print("(1,5) + (2,3) = \(subPt_dict(["x": 1, "y": 5], p2: ["x": 2, "y": 3]))")
+print("(1,1) + (4,1) = \(subPt_dict(["x": 1, "y": 1], p2: ["x": 4, "y": 1]))")
