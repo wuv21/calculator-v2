@@ -2,8 +2,8 @@
 //  main.swift
 //  calculator-v2
 //
-//  Created by studentuser on 4/5/16.
-//  Copyright © 2016 Vincent Wu. All rights reserved.
+//  Created by Vincent Wu on 4/5/16.
+//  
 //
 
 import Foundation
@@ -57,6 +57,7 @@ print("3 / 4 = \(mathOp(3, x2: 4, op: divide))")
 print("5 / 1 = \(mathOp(5, x2: 1, op: divide))")
 print("1 / 8 = \(mathOp(1, x2: 8, op: divide))")
 print("2 / 6 = \(mathOp(2, x2: 6, op: divide))")
+
 
 // ******************
 // Array fun
@@ -115,6 +116,7 @@ print("[3, 4, 5, 6] = \(mathArrayOp([3, 4, 5, 6], op: count))")
 print("[] = \(mathArrayOp([], op: count))")
 print("[1] = \(mathArrayOp([1], op: count))")
 print("[2, 2, 2] = \(mathArrayOp([2, 2, 2], op: count))")
+
 
 // ******************
 // Points
