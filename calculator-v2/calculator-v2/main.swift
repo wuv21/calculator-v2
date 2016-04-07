@@ -131,13 +131,33 @@ func subPt(p1: CartPt, p2: CartPt) -> CartPt {
 typealias CartPt_dict = Dictionary<String, Double>
 
 func addPt_dict(p1: CartPt_dict, p2: CartPt_dict) -> CartPt_dict {
-    return ["x": p1["x"]! + p2["x"]!,
-            "y": p1["y"]! + p2["y"]!]
+    var ans = ["x": 0.0, "y": 0.0]
+    
+    for (key, _) in ans {
+        if p1[key] == nil {
+            ans[key] = p2[key]!
+        } else if p2[key] == nil {
+            ans[key] = p1[key]!
+        } else {
+            ans[key] = p1[key]! + p2[key]!
+        }
+    }
+    return ans
 }
 
 func subPt_dict(p1: CartPt_dict, p2: CartPt_dict) -> CartPt_dict {
-    return ["x": p1["x"]! - p2["x"]!,
-            "y": p1["y"]! - p2["y"]!]
+    var ans = ["x": 0.0, "y": 0.0]
+    
+    for (key, _) in ans {
+        if p1[key] == nil {
+            ans[key] = -p2[key]!
+        } else if p2[key] == nil {
+            ans[key] = p1[key]!
+        } else {
+            ans[key] = p1[key]! - p2[key]!
+        }
+    }
+    return ans
 }
 
 // examples - point addition
@@ -160,6 +180,8 @@ print("(0,0) + (3,3) = \(addPt_dict(["x": 0, "y": 0], p2: ["x": 3, "y": 3]))")
 print("(2,4) + (3,3) = \(addPt_dict(["x": 2, "y": 4], p2: ["x": 3, "y": 3]))")
 print("(1,5) + (2,3) = \(addPt_dict(["x": 1, "y": 5], p2: ["x": 2, "y": 3]))")
 print("(1,1) + (4,1) = \(addPt_dict(["x": 1, "y": 1], p2: ["x": 4, "y": 1]))")
+print("(1) + (4,1) = \(addPt_dict(["x": 1], p2: ["x": 4, "y": 1]))")
+print("(1,2) + (4) = \(addPt_dict(["x": 1, "y": 2], p2: ["x": 4]))")
 
 // examples - point dictionary substraction
 print("\nexamples - - - point dictionary substraction")
@@ -167,3 +189,5 @@ print("(0,0) + (3,3) = \(subPt_dict(["x": 0, "y": 0], p2: ["x": 3, "y": 3]))")
 print("(2,4) + (3,3) = \(subPt_dict(["x": 2, "y": 4], p2: ["x": 3, "y": 3]))")
 print("(1,5) + (2,3) = \(subPt_dict(["x": 1, "y": 5], p2: ["x": 2, "y": 3]))")
 print("(1,1) + (4,1) = \(subPt_dict(["x": 1, "y": 1], p2: ["x": 4, "y": 1]))")
+print("(1) - (4,1) = \(subPt_dict(["x": 1], p2: ["x": 4, "y": 1]))")
+print("(1,2) - (4) = \(subPt_dict(["x": 1, "y": 2], p2: ["x": 4]))")
